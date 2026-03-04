@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-serif: var(--font-fraunces), serif;
+
+  --color-brand-teal: #0D9488;
+  --color-brand-teal-light: #14B8A6;
+  --color-brand-teal-dark: #0F766E;
+  --color-brand-teal-deep: #042F2E;
+  --color-brand-orange: #F97316;
+  --color-brand-orange-light: #FDBA74;
+  --color-brand-cream: #FDF8F0;
+  --color-brand-cream-dark: #F5EDDF;
+  --color-brand-dark: #111110;
+  --color-brand-dark-warm: #1A1918;
+  --color-brand-text: #3D3B37;
+  --color-brand-text-light: #78736A;
+  --color-brand-border: #E8E3DA;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,13 +29,13 @@ body {
 }
 
 .img-zoom {
-  @apply overflow-hidden;
+  overflow: hidden;
 }
 .img-zoom img {
-  @apply transition-transform duration-500 ease-out;
+  transition: transform 0.5s ease-out;
 }
 .img-zoom:hover img {
-  @apply scale-105;
+  transform: scale(1.05);
 }
 
 .faq-answer {
