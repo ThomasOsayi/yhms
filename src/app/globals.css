@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #FDF8F0;
+  color: #3D3B37;
+}
+
+/* Smooth image hover zoom */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition-property: transform;
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+}
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* FAQ animation */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-answer.open {
+  max-height: 500px;
+}
