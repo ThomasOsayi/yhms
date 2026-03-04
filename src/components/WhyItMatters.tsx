@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import AnimateIn from "./AnimateIn";
+import StaggerChildren, { StaggerItem } from "./StaggerChildren";
 
 const cards = [
   {
@@ -23,7 +27,7 @@ export default function WhyItMatters() {
     <section className="py-28">
       <div className="max-w-[1280px] mx-auto px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end mb-16">
-          <div>
+          <AnimateIn>
             <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">
               Why It Matters
             </p>
@@ -32,40 +36,41 @@ export default function WhyItMatters() {
               <br />
               <em className="italic text-brand-teal">new generation</em>
             </h2>
-          </div>
-          <p className="text-lg text-brand-text-light max-w-[540px] leading-relaxed">
-            Too many students fall through the cracks — lacking access,
-            mentorship, and real exposure to health careers. We&apos;re changing
-            that.
-          </p>
+          </AnimateIn>
+          <AnimateIn delay={0.15}>
+            <p className="text-lg text-brand-text-light max-w-[540px] leading-relaxed">
+              Too many students fall through the cracks — lacking access,
+              mentorship, and real exposure to health careers. We&apos;re
+              changing that.
+            </p>
+          </AnimateIn>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <StaggerChildren stagger={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {cards.map((card) => (
-            <div
-              key={card.title}
-              className="rounded-xl overflow-hidden bg-white border border-brand-border hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-400"
-            >
-              <div className="h-[220px] img-zoom">
-                <Image
-                  src={card.img}
-                  alt={card.title}
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
+            <StaggerItem key={card.title}>
+              <div className="rounded-xl overflow-hidden bg-white border border-brand-border hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-400">
+                <div className="h-[220px] img-zoom">
+                  <Image
+                    src={card.img}
+                    alt={card.title}
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-7">
+                  <h3 className="font-serif font-bold text-[22px] text-brand-dark mb-2.5 tracking-tight">
+                    {card.title}
+                  </h3>
+                  <p className="text-[15px] text-brand-text-light leading-relaxed">
+                    {card.desc}
+                  </p>
+                </div>
               </div>
-              <div className="p-7">
-                <h3 className="font-serif font-bold text-[22px] text-brand-dark mb-2.5 tracking-tight">
-                  {card.title}
-                </h3>
-                <p className="text-[15px] text-brand-text-light leading-relaxed">
-                  {card.desc}
-                </p>
-              </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </section>
   );

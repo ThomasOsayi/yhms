@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
+import AnimateIn from "@/components/AnimateIn";
+import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 
 const mosaic = [
   { label: "Community Health Screenings", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=700&fit=crop" },
@@ -28,7 +32,7 @@ export default function ImpactPage() {
     <>
       <section className="pt-36 pb-24">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="text-center">
+          <AnimateIn className="text-center">
             <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Community Impact</p>
             <h1 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
               See what we&apos;re <em className="italic text-brand-teal">building</em>
@@ -36,24 +40,26 @@ export default function ImpactPage() {
             <p className="text-lg text-brand-text-light max-w-[540px] mx-auto leading-relaxed mt-4">
               From campus chapters to community health events — YHMS students are making a real difference.
             </p>
-          </div>
+          </AnimateIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-[300px_300px] gap-4 mt-16">
+          <StaggerChildren stagger={0.1} className="grid grid-cols-1 md:grid-cols-3 grid-rows-[300px_300px] gap-4 mt-16">
             {mosaic.map((item, i) => (
-              <div key={item.label} className={`rounded-xl overflow-hidden relative img-zoom ${i === 0 ? "row-span-2" : ""}`}>
-                <Image src={item.img} alt={item.label} width={600} height={i === 0 ? 700 : 350} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
-                  <span className="text-white font-semibold text-[15px]">{item.label}</span>
+              <StaggerItem key={item.label} className={i === 0 ? "row-span-2" : ""}>
+                <div className="rounded-xl overflow-hidden relative img-zoom h-full">
+                  <Image src={item.img} alt={item.label} width={600} height={i === 0 ? 700 : 350} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
+                    <span className="text-white font-semibold text-[15px]">{item.label}</span>
+                  </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       <section className="py-24">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="text-center mb-12">
+          <AnimateIn className="text-center mb-12">
             <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Student Voices</p>
             <h2 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
               In their <em className="italic text-brand-teal">own words</em>
@@ -61,51 +67,55 @@ export default function ImpactPage() {
             <p className="text-lg text-brand-text-light max-w-[540px] mx-auto leading-relaxed mt-4">
               Real stories from students and mentors in our programs.
             </p>
-          </div>
+          </AnimateIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <StaggerChildren stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {stories.map((story) => (
-              <div key={story.name} className="bg-white rounded-xl p-9 border border-brand-border hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(0,0,0,0.06)] transition-all">
-                <blockquote className="font-serif text-lg italic text-brand-dark leading-relaxed mb-6 pl-6 border-l-[3px] border-brand-teal">
-                  &ldquo;{story.quote}&rdquo;
-                </blockquote>
-                <div className="flex items-center gap-3.5">
-                  <div className="w-12 h-12 rounded-[14px] overflow-hidden">
-                    <Image src={story.avatar} alt={story.name} width={100} height={100} className="w-full h-full object-cover" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-brand-dark text-[15px]">{story.name}</div>
-                    <div className="text-[13px] text-brand-text-light mt-0.5">{story.role}</div>
+              <StaggerItem key={story.name}>
+                <div className="bg-white rounded-xl p-9 border border-brand-border hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(0,0,0,0.06)] transition-all">
+                  <blockquote className="font-serif text-lg italic text-brand-dark leading-relaxed mb-6 pl-6 border-l-[3px] border-brand-teal">
+                    &ldquo;{story.quote}&rdquo;
+                  </blockquote>
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-12 h-12 rounded-[14px] overflow-hidden">
+                      <Image src={story.avatar} alt={story.name} width={100} height={100} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-brand-dark text-[15px]">{story.name}</div>
+                      <div className="text-[13px] text-brand-text-light mt-0.5">{story.role}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       <section className="py-24 bg-brand-teal-deep text-white">
         <div className="max-w-[1280px] mx-auto px-8">
-          <div className="text-center">
+          <AnimateIn className="text-center">
             <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal-light mb-3.5">Student Projects</p>
             <h2 className="font-serif font-bold text-[clamp(34px,4vw,48px)] leading-[1.1] tracking-tight">
               Impact <em className="italic text-brand-teal-light">in action</em>
             </h2>
-          </div>
+          </AnimateIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <StaggerChildren stagger={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             {projects.map((project) => (
-              <div key={project.title} className="bg-white/[0.06] border border-white/[0.08] rounded-xl overflow-hidden hover:-translate-y-1 hover:bg-white/10 transition-all">
-                <div className="h-[200px] img-zoom">
-                  <Image src={project.img} alt={project.title} width={600} height={350} className="w-full h-full object-cover" />
+              <StaggerItem key={project.title}>
+                <div className="bg-white/[0.06] border border-white/[0.08] rounded-xl overflow-hidden hover:-translate-y-1 hover:bg-white/10 transition-all">
+                  <div className="h-[200px] img-zoom">
+                    <Image src={project.img} alt={project.title} width={600} height={350} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-6">
+                    <h4 className="font-serif font-bold text-xl mb-2">{project.title}</h4>
+                    <p className="text-sm text-white/60 leading-relaxed">{project.desc}</p>
+                  </div>
                 </div>
-                <div className="p-6">
-                  <h4 className="font-serif font-bold text-xl mb-2">{project.title}</h4>
-                  <p className="text-sm text-white/60 leading-relaxed">{project.desc}</p>
-                </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 

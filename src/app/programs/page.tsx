@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import AnimateIn from "@/components/AnimateIn";
 
 const programs = [
   {
@@ -53,49 +56,39 @@ export default function ProgramsPage() {
   return (
     <section className="pt-36 pb-28">
       <div className="max-w-[1280px] mx-auto px-8">
-        <div className="text-center mb-16">
-          <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">
-            Our Programs
-          </p>
+        <AnimateIn className="text-center mb-16">
+          <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Our Programs</p>
           <h1 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
             Three tracks. <em className="italic text-brand-teal">One mission.</em>
           </h1>
           <p className="text-lg text-brand-text-light max-w-[540px] mx-auto leading-relaxed mt-4">
-            Every program gives students real experience, real mentorship, and
-            real community impact.
+            Every program gives students real experience, real mentorship, and real community impact.
           </p>
-        </div>
+        </AnimateIn>
 
         <div className="flex flex-col gap-10">
           {programs.map((program, i) => (
-            <div
-              key={program.title}
-              className="grid grid-cols-1 lg:grid-cols-2 rounded-xl overflow-hidden bg-white border border-brand-border hover:shadow-[0_16px_48px_rgba(0,0,0,0.07)] transition-all"
-            >
-              <div className={`min-h-[300px] lg:min-h-[400px] img-zoom ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                <Image src={program.img} alt={program.title} width={700} height={500} className="w-full h-full object-cover" />
-              </div>
-              <div className={`p-10 lg:p-12 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                <span className={`inline-flex w-fit px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-[1.5px] mb-5 ${program.tagColor}`}>
-                  {program.tag}
-                </span>
-                <h2 className="font-serif font-bold text-[30px] text-brand-dark tracking-tight leading-[1.15] mb-3.5">
-                  {program.title}
-                </h2>
-                <p className="text-base text-brand-text-light leading-relaxed mb-6">{program.desc}</p>
-                <div className="flex flex-col gap-2.5 mb-7">
-                  {program.features.map((f) => (
-                    <div key={f} className="flex items-center gap-2.5 text-sm font-medium text-brand-text">
-                      <span className="w-6 h-6 rounded-lg bg-brand-teal/[0.08] text-brand-teal flex items-center justify-center text-[13px] font-bold shrink-0">✓</span>
-                      {f}
-                    </div>
-                  ))}
+            <AnimateIn key={program.title} y={50} delay={i * 0.1}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 rounded-xl overflow-hidden bg-white border border-brand-border hover:shadow-[0_16px_48px_rgba(0,0,0,0.07)] transition-all">
+                <div className={`min-h-[300px] lg:min-h-[400px] img-zoom ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <Image src={program.img} alt={program.title} width={700} height={500} className="w-full h-full object-cover" />
                 </div>
-                <Link href="/get-involved" className={`inline-flex items-center gap-2 w-fit px-8 py-4 rounded-full font-semibold text-[15px] hover:-translate-y-0.5 transition-all ${program.btnClass}`}>
-                  {program.btnText}
-                </Link>
+                <div className={`p-10 lg:p-12 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <span className={`inline-flex w-fit px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-[1.5px] mb-5 ${program.tagColor}`}>{program.tag}</span>
+                  <h2 className="font-serif font-bold text-[30px] text-brand-dark tracking-tight leading-[1.15] mb-3.5">{program.title}</h2>
+                  <p className="text-base text-brand-text-light leading-relaxed mb-6">{program.desc}</p>
+                  <div className="flex flex-col gap-2.5 mb-7">
+                    {program.features.map((f) => (
+                      <div key={f} className="flex items-center gap-2.5 text-sm font-medium text-brand-text">
+                        <span className="w-6 h-6 rounded-lg bg-brand-teal/[0.08] text-brand-teal flex items-center justify-center text-[13px] font-bold flex-shrink-0">✓</span>
+                        {f}
+                      </div>
+                    ))}
+                  </div>
+                  <Link href="/get-involved" className={`inline-flex items-center gap-2 w-fit px-8 py-4 rounded-full font-semibold text-[15px] hover:-translate-y-0.5 transition-all ${program.btnClass}`}>{program.btnText}</Link>
+                </div>
               </div>
-            </div>
+            </AnimateIn>
           ))}
         </div>
       </div>
