@@ -22,13 +22,12 @@ const socials = ["IG", "TT", "YT", "IN"];
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white pt-[72px] pb-8">
+    <footer className="bg-brand-dark text-white pt-[72px] pb-8">
       <div className="max-w-[1280px] mx-auto px-8">
-        {/* Top */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 mb-12">
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-[42px] h-[42px] bg-teal-deep rounded-xl flex items-center justify-center text-teal-light font-serif font-extrabold text-[17px]">
+              <div className="w-[42px] h-[42px] bg-brand-teal-deep rounded-xl flex items-center justify-center text-brand-teal-light font-serif font-extrabold text-[17px]">
                 Y
               </div>
               <span className="font-serif font-bold text-xl text-white tracking-tight">
@@ -51,7 +50,7 @@ export default function Footer() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="block text-white/60 text-sm py-1.5 hover:text-teal-light transition-colors"
+                  className="block text-white/60 text-sm py-1.5 hover:text-brand-teal-light transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -60,18 +59,19 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-white/[0.06] pt-7 flex flex-col md:flex-row justify-between items-center gap-4 text-[13px] text-white/30">
+        <div className="border-t border-white/6 pt-7 flex flex-col md:flex-row justify-between items-center gap-4 text-[13px] text-white/30">
           <span>
             © 2026 Youth in Health & Medical Sciences. All rights reserved.
           </span>
           <div className="flex gap-2.5">
             {socials.map((s) => (
-              <div key={s}>
-                <div className="w-[38px] h-[38px] rounded-[10px] bg-white/5 flex items-center justify-center text-white/45 text-[13px] font-bold hover:bg-teal hover:text-white transition-all cursor-pointer">
-                  {s}
-                </div>
-              </div>
+              <a
+                key={s}
+                href="#"
+                className="w-[38px] h-[38px] rounded-[10px] bg-white/5 flex items-center justify-center text-white/45 text-[13px] font-bold hover:bg-brand-teal hover:text-white transition-all cursor-pointer"
+              >
+                {s}
+              </a>
             ))}
           </div>
         </div>

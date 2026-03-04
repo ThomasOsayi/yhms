@@ -1,21 +1,26 @@
 import Image from "next/image";
 
-interface ImageBannerProps {
-  src: string;
-  alt: string;
-  className?: string;
-}
-
-export default function ImageBanner({ src, alt, className = "" }: ImageBannerProps) {
+export default function ImageBanner() {
   return (
-    <section className={`relative h-64 w-full overflow-hidden md:h-80 ${className}`}>
+    <div className="h-[480px] max-md:h-[360px] relative overflow-hidden">
       <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover"
-        sizes="100vw"
+        src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1600&h=600&fit=crop"
+        alt="Students together"
+        width={1600}
+        height={600}
+        className="w-full h-full object-cover"
       />
-    </section>
+      <div className="absolute inset-0 bg-linear-to-t from-brand-teal-deep/85 via-brand-teal-deep/30 to-transparent flex items-end p-8 lg:p-16">
+        <div className="max-w-[600px] text-white">
+          <h2 className="font-serif font-bold text-[clamp(30px,3.5vw,44px)] leading-[1.15] tracking-tight mb-3">
+            Real experience. Real mentors. Real impact.
+          </h2>
+          <p className="text-[17px] text-white/75 leading-relaxed">
+            YHMS gives students the tools, connections, and confidence to pursue
+            health careers — starting now, not someday.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }

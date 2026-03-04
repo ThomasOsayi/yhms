@@ -9,20 +9,16 @@ body {
   color: #3D3B37;
 }
 
-/* Smooth image hover zoom */
 .img-zoom {
-  overflow: hidden;
+  @apply overflow-hidden;
 }
 .img-zoom img {
-  transition-property: transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-out;
+  @apply transition-transform duration-500 ease-out;
 }
 .img-zoom:hover img {
-  transform: scale(1.05);
+  @apply scale-105;
 }
 
-/* FAQ animation */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
