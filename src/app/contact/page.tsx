@@ -4,9 +4,9 @@ import AnimateIn from "@/components/AnimateIn";
 
 export default function ContactPage() {
   return (
-    <section className="pt-36 pb-28">
-      <div className="max-w-[1280px] mx-auto px-8">
-        <AnimateIn className="text-center mb-12">
+    <section className="pt-36 pb-20 sm:pb-28">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+        <AnimateIn className="text-center mb-10 sm:mb-12">
           <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Contact Us</p>
           <h1 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
             Let&apos;s <em className="italic text-brand-teal">connect</em>
@@ -16,41 +16,41 @@ export default function ContactPage() {
           </p>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-start">
           <AnimateIn x={-30} y={0}>
             <div>
-              <h3 className="font-serif font-bold text-[28px] text-brand-dark mb-4">Reach out anytime</h3>
-              <p className="text-brand-text-light text-base leading-relaxed mb-9">
+              <h3 className="font-serif font-bold text-[24px] sm:text-[28px] text-brand-dark mb-3 sm:mb-4">Reach out anytime</h3>
+              <p className="text-brand-text-light text-base leading-relaxed mb-7 sm:mb-9">
                 We&apos;re always looking for new mentors, partners, and supporters. Whether you want to learn more or collaborate, drop us a line.
               </p>
 
-              <div className="flex flex-col gap-3.5">
+              <div className="flex flex-col gap-3">
                 {[
                   { icon: "✉", label: "Email", value: "hello@yhms.org" },
                   { icon: "📍", label: "Based In", value: "Los Angeles, California" },
                   { icon: "📲", label: "Social", value: "@yhms on Instagram & TikTok" },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-4 p-4 bg-white rounded-lg border border-brand-border">
-                    <div className="w-[46px] h-[46px] rounded-xl bg-brand-teal-deep text-brand-teal-light flex items-center justify-center text-xl flex-shrink-0">
+                  <div key={item.label} className="flex items-center gap-3 sm:gap-4 p-3.5 sm:p-4 bg-white rounded-lg border border-brand-border">
+                    <div className="w-10 h-10 sm:w-[46px] sm:h-[46px] rounded-xl bg-brand-teal-deep text-brand-teal-light flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
                       {item.icon}
                     </div>
                     <div>
                       <div className="text-xs text-brand-text-light font-semibold uppercase tracking-[1px]">{item.label}</div>
-                      <div className="font-semibold text-brand-dark text-[15px] mt-0.5">{item.value}</div>
+                      <div className="font-semibold text-brand-dark text-sm sm:text-[15px] mt-0.5">{item.value}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="rounded-xl overflow-hidden h-80 mt-8">
+              <div className="rounded-xl overflow-hidden h-56 sm:h-80 mt-6 sm:mt-8">
                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=700&h=400&fit=crop" alt="Team working" className="w-full h-full object-cover" />
               </div>
             </div>
           </AnimateIn>
 
           <AnimateIn x={30} y={0} delay={0.15}>
-            <div className="bg-white rounded-xl p-10 border border-brand-border shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div className="bg-white rounded-xl p-6 sm:p-10 border border-brand-border shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 sm:mb-5">
                 <div>
                   <label className="block text-[13px] font-bold text-brand-dark uppercase tracking-[0.5px] mb-1.5">First Name</label>
                   <input type="text" placeholder="Your first name" className="w-full px-4 py-3 border-2 border-brand-border rounded-lg font-sans text-[15px] text-brand-dark bg-brand-cream outline-none focus:border-brand-teal focus:shadow-[0_0_0_4px_rgba(13,148,136,0.08)] transition-all" />
@@ -60,11 +60,11 @@ export default function ContactPage() {
                   <input type="text" placeholder="Your last name" className="w-full px-4 py-3 border-2 border-brand-border rounded-lg font-sans text-[15px] text-brand-dark bg-brand-cream outline-none focus:border-brand-teal focus:shadow-[0_0_0_4px_rgba(13,148,136,0.08)] transition-all" />
                 </div>
               </div>
-              <div className="mb-5">
+              <div className="mb-4 sm:mb-5">
                 <label className="block text-[13px] font-bold text-brand-dark uppercase tracking-[0.5px] mb-1.5">Email</label>
                 <input type="email" placeholder="you@email.com" className="w-full px-4 py-3 border-2 border-brand-border rounded-lg font-sans text-[15px] text-brand-dark bg-brand-cream outline-none focus:border-brand-teal focus:shadow-[0_0_0_4px_rgba(13,148,136,0.08)] transition-all" />
               </div>
-              <div className="mb-5">
+              <div className="mb-4 sm:mb-5">
                 <label className="block text-[13px] font-bold text-brand-dark uppercase tracking-[0.5px] mb-1.5">I am a...</label>
                 <select className="w-full px-4 py-3 border-2 border-brand-border rounded-lg font-sans text-[15px] text-brand-dark bg-brand-cream outline-none focus:border-brand-teal focus:shadow-[0_0_0_4px_rgba(13,148,136,0.08)] transition-all">
                   <option value="">Select one</option>
@@ -78,9 +78,9 @@ export default function ContactPage() {
               </div>
               <div className="mb-5">
                 <label className="block text-[13px] font-bold text-brand-dark uppercase tracking-[0.5px] mb-1.5">Message</label>
-                <textarea placeholder="Tell us what's on your mind..." rows={5} className="w-full px-4 py-3 border-2 border-brand-border rounded-lg font-sans text-[15px] text-brand-dark bg-brand-cream outline-none resize-y focus:border-brand-teal focus:shadow-[0_0_0_4px_rgba(13,148,136,0.08)] transition-all" />
+                <textarea placeholder="Tell us what's on your mind..." rows={4} className="w-full px-4 py-3 border-2 border-brand-border rounded-lg font-sans text-[15px] text-brand-dark bg-brand-cream outline-none resize-y focus:border-brand-teal focus:shadow-[0_0_0_4px_rgba(13,148,136,0.08)] transition-all" />
               </div>
-              <button className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-teal-deep text-white font-semibold text-[15px] hover:bg-brand-teal-dark hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(4,47,46,0.25)] transition-all">
+              <button className="w-full flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-brand-teal-deep text-white font-semibold text-[15px] hover:bg-brand-teal-dark hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(4,47,46,0.25)] transition-all">
                 Send Message →
               </button>
             </div>

@@ -31,7 +31,7 @@ export default function ImpactPage() {
   return (
     <>
       <section className="pt-36 pb-24">
-        <div className="max-w-[1280px] mx-auto px-8">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <AnimateIn className="text-center">
             <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Community Impact</p>
             <h1 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
@@ -42,13 +42,13 @@ export default function ImpactPage() {
             </p>
           </AnimateIn>
 
-          <StaggerChildren stagger={0.1} className="grid grid-cols-1 md:grid-cols-3 grid-rows-[300px_300px] gap-4 mt-16">
+          <StaggerChildren stagger={0.1} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 auto-rows-[240px] sm:auto-rows-[300px] gap-4 mt-16">
             {mosaic.map((item, i) => (
-              <StaggerItem key={item.label} className={i === 0 ? "row-span-2" : ""}>
+              <StaggerItem key={item.label} className={i === 0 ? "sm:row-span-2" : ""}>
                 <div className="rounded-xl overflow-hidden relative img-zoom h-full">
                   <Image src={item.img} alt={item.label} width={600} height={i === 0 ? 700 : 350} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-6">
-                    <span className="text-white font-semibold text-[15px]">{item.label}</span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-5 sm:p-6">
+                    <span className="text-white font-semibold text-sm sm:text-[15px]">{item.label}</span>
                   </div>
                 </div>
               </StaggerItem>
@@ -57,8 +57,8 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="max-w-[1280px] mx-auto px-8">
+      <section className="py-16 sm:py-24">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <AnimateIn className="text-center mb-12">
             <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Student Voices</p>
             <h2 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
@@ -69,15 +69,15 @@ export default function ImpactPage() {
             </p>
           </AnimateIn>
 
-          <StaggerChildren stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <StaggerChildren stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {stories.map((story) => (
               <StaggerItem key={story.name}>
-                <div className="bg-white rounded-xl p-9 border border-brand-border hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(0,0,0,0.06)] transition-all">
-                  <blockquote className="font-serif text-lg italic text-brand-dark leading-relaxed mb-6 pl-6 border-l-[3px] border-brand-teal">
+                <div className="bg-white rounded-xl p-6 sm:p-9 border border-brand-border hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(0,0,0,0.06)] transition-all">
+                  <blockquote className="font-serif text-base sm:text-lg italic text-brand-dark leading-relaxed mb-5 sm:mb-6 pl-5 sm:pl-6 border-l-[3px] border-brand-teal">
                     &ldquo;{story.quote}&rdquo;
                   </blockquote>
                   <div className="flex items-center gap-3.5">
-                    <div className="w-12 h-12 rounded-[14px] overflow-hidden">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-[14px] overflow-hidden flex-shrink-0">
                       <Image src={story.avatar} alt={story.name} width={100} height={100} className="w-full h-full object-cover" />
                     </div>
                     <div>
@@ -92,8 +92,8 @@ export default function ImpactPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-brand-teal-deep text-white">
-        <div className="max-w-[1280px] mx-auto px-8">
+      <section className="py-16 sm:py-24 bg-brand-teal-deep text-white">
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
           <AnimateIn className="text-center">
             <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal-light mb-3.5">Student Projects</p>
             <h2 className="font-serif font-bold text-[clamp(34px,4vw,48px)] leading-[1.1] tracking-tight">
@@ -101,15 +101,15 @@ export default function ImpactPage() {
             </h2>
           </AnimateIn>
 
-          <StaggerChildren stagger={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+          <StaggerChildren stagger={0.12} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 mt-12">
             {projects.map((project) => (
               <StaggerItem key={project.title}>
                 <div className="bg-white/[0.06] border border-white/[0.08] rounded-xl overflow-hidden hover:-translate-y-1 hover:bg-white/10 transition-all">
-                  <div className="h-[200px] img-zoom">
+                  <div className="h-[180px] sm:h-[200px] img-zoom">
                     <Image src={project.img} alt={project.title} width={600} height={350} className="w-full h-full object-cover" />
                   </div>
-                  <div className="p-6">
-                    <h4 className="font-serif font-bold text-xl mb-2">{project.title}</h4>
+                  <div className="p-5 sm:p-6">
+                    <h4 className="font-serif font-bold text-lg sm:text-xl mb-2">{project.title}</h4>
                     <p className="text-sm text-white/60 leading-relaxed">{project.desc}</p>
                   </div>
                 </div>
