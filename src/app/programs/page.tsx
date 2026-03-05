@@ -2,124 +2,96 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import CTABanner from "@/components/CTABanner";
 import AnimateIn from "@/components/AnimateIn";
-import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 
-const mosaic = [
-  { label: "Community Health Screenings", img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=700&fit=crop" },
-  { label: "Student Workshops", img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=350&fit=crop" },
-  { label: "Mentor Matching Events", img: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&h=350&fit=crop" },
-  { label: "Campus Chapter Launches", img: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=600&h=350&fit=crop" },
-  { label: "Clinical Shadowing", img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=350&fit=crop" },
+const programs = [
+  {
+    tag: "Grades 9–12",
+    tagColor: "bg-brand-teal/10 text-brand-teal-dark",
+    title: "High School Track",
+    desc: "Get an early start on your health career journey through workshops, shadowing, and community health projects.",
+    features: [
+      "Monthly health career workshops",
+      "Paired with a college student mentor",
+      "Community wellness project participation",
+      "Certificate of completion",
+    ],
+    img: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=700&h=500&fit=crop",
+    btnClass: "bg-brand-teal-deep text-white hover:bg-brand-teal-dark hover:shadow-[0_8px_24px_rgba(4,47,46,0.25)]",
+    btnText: "Apply Now →",
+  },
+  {
+    tag: "Undergrad & Grad",
+    tagColor: "bg-brand-orange/10 text-brand-orange",
+    title: "College Track",
+    desc: "Take your pre-health journey further with clinical shadowing, research exposure, and community wellness leadership.",
+    features: [
+      "Clinical shadowing placements",
+      "Professional mentor matching",
+      "Lead community health projects",
+      "Networking events & career panels",
+    ],
+    img: "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=700&h=500&fit=crop",
+    btnClass: "bg-brand-orange text-white shadow-[0_2px_12px_rgba(249,115,22,0.25)] hover:shadow-[0_8px_24px_rgba(249,115,22,0.35)]",
+    btnText: "Apply Now →",
+  },
+  {
+    tag: "Leadership",
+    tagColor: "bg-[#6366F1]/10 text-[#6366F1]",
+    title: "Ambassador Program",
+    desc: "Bring YHMS to your campus. Organize local events, recruit students, and build the community from the ground up.",
+    features: [
+      "Represent YHMS on your campus",
+      "Plan and lead local events",
+      "Build leadership & organizational skills",
+      "Resume-worthy experience",
+    ],
+    img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&h=500&fit=crop",
+    btnClass: "bg-transparent text-brand-dark border-2 border-brand-border hover:border-brand-teal hover:text-brand-teal",
+    btnText: "Become an Ambassador →",
+  },
 ];
 
-const stories = [
-  { quote: "YHMS connected me with a physician assistant who showed me what life after school actually looks like. That one conversation changed my entire career plan.", name: "Maya R.", role: "College Track • UCLA", avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" },
-  { quote: "As a mentor, I get to give back in a way that actually matters. These students are hungry for guidance and it's incredibly rewarding.", name: "Dr. James K.", role: "Mentor • Emergency Medicine", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" },
-  { quote: "I started a chapter at my school with 5 people. Now we have over 40 members and just ran our first community health screening event.", name: "Anthony L.", role: "Ambassador • Howard University", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" },
-  { quote: "As a first-gen student, I didn't have anyone to ask about pre-med. YHMS gave me a whole community. I don't feel lost anymore.", name: "Sofia M.", role: "High School Track • LA", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" },
-];
-
-const projects = [
-  { title: "Community Health Screenings", desc: "Students organized free blood pressure and glucose screenings in underserved neighborhoods, reaching hundreds of community members.", img: "https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=600&h=350&fit=crop" },
-  { title: "Wellness Education Series", desc: "A student-led social media campaign debunking health myths reached thousands of young people across Instagram and TikTok.", img: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=350&fit=crop" },
-  { title: "Pre-Health Resource Guide", desc: "Ambassadors created an open-source guide for first-generation pre-health students navigating applications and career planning.", img: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&h=350&fit=crop" },
-];
-
-export default function ImpactPage() {
+export default function ProgramsPage() {
   return (
-    <>
-      <section className="pt-36 pb-24">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
-          <AnimateIn className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Community Impact</p>
-            <h1 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
-              See what we&apos;re <em className="italic text-brand-teal">building</em>
-            </h1>
-            <p className="text-lg text-brand-text-light max-w-[540px] mx-auto leading-relaxed mt-4">
-              From campus chapters to community health events — YHMS students are making a real difference.
-            </p>
-          </AnimateIn>
+    <section className="pt-36 pb-28">
+      <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
+        <AnimateIn className="text-center mb-12 sm:mb-16">
+          <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Our Programs</p>
+          <h1 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
+            Three tracks. <em className="italic text-brand-teal">One mission.</em>
+          </h1>
+          <p className="text-lg text-brand-text-light max-w-[540px] mx-auto leading-relaxed mt-4">
+            Every program gives students real experience, real mentorship, and real community impact.
+          </p>
+        </AnimateIn>
 
-          <StaggerChildren stagger={0.1} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 auto-rows-[240px] sm:auto-rows-[300px] gap-4 mt-16">
-            {mosaic.map((item, i) => (
-              <StaggerItem key={item.label} className={i === 0 ? "sm:row-span-2" : ""}>
-                <div className="rounded-xl overflow-hidden relative img-zoom h-full">
-                  <Image src={item.img} alt={item.label} width={600} height={i === 0 ? 700 : 350} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-5 sm:p-6">
-                    <span className="text-white font-semibold text-sm sm:text-[15px]">{item.label}</span>
-                  </div>
+        <div className="flex flex-col gap-8 sm:gap-10">
+          {programs.map((program, i) => (
+            <AnimateIn key={program.title} y={50} delay={i * 0.1}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 rounded-xl overflow-hidden bg-white border border-brand-border hover:shadow-[0_16px_48px_rgba(0,0,0,0.07)] transition-all">
+                <div className={`min-h-[220px] sm:min-h-[300px] lg:min-h-[400px] img-zoom ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <Image src={program.img} alt={program.title} width={700} height={500} className="w-full h-full object-cover" />
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      </section>
-
-      <section className="py-16 sm:py-24">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
-          <AnimateIn className="text-center mb-12">
-            <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal mb-3.5">Student Voices</p>
-            <h2 className="font-serif font-bold text-[clamp(34px,4.5vw,56px)] leading-[1.1] tracking-tight text-brand-dark">
-              In their <em className="italic text-brand-teal">own words</em>
-            </h2>
-            <p className="text-lg text-brand-text-light max-w-[540px] mx-auto leading-relaxed mt-4">
-              Real stories from students and mentors in our programs.
-            </p>
-          </AnimateIn>
-
-          <StaggerChildren stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {stories.map((story) => (
-              <StaggerItem key={story.name}>
-                <div className="bg-white rounded-xl p-6 sm:p-9 border border-brand-border hover:-translate-y-1 hover:shadow-[0_12px_36px_rgba(0,0,0,0.06)] transition-all">
-                  <blockquote className="font-serif text-base sm:text-lg italic text-brand-dark leading-relaxed mb-5 sm:mb-6 pl-5 sm:pl-6 border-l-[3px] border-brand-teal">
-                    &ldquo;{story.quote}&rdquo;
-                  </blockquote>
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-[14px] overflow-hidden flex-shrink-0">
-                      <Image src={story.avatar} alt={story.name} width={100} height={100} className="w-full h-full object-cover" />
-                    </div>
-                    <div>
-                      <div className="font-bold text-brand-dark text-[15px]">{story.name}</div>
-                      <div className="text-[13px] text-brand-text-light mt-0.5">{story.role}</div>
-                    </div>
+                <div className={`p-6 sm:p-10 lg:p-12 flex flex-col justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                  <span className={`inline-flex w-fit px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-[1.5px] mb-4 sm:mb-5 ${program.tagColor}`}>{program.tag}</span>
+                  <h2 className="font-serif font-bold text-[24px] sm:text-[30px] text-brand-dark tracking-tight leading-[1.15] mb-3">{program.title}</h2>
+                  <p className="text-base text-brand-text-light leading-relaxed mb-5 sm:mb-6">{program.desc}</p>
+                  <div className="flex flex-col gap-2 sm:gap-2.5 mb-6 sm:mb-7">
+                    {program.features.map((f) => (
+                      <div key={f} className="flex items-center gap-2.5 text-sm font-medium text-brand-text">
+                        <span className="w-6 h-6 rounded-lg bg-brand-teal/[0.08] text-brand-teal flex items-center justify-center text-[13px] font-bold flex-shrink-0">✓</span>
+                        {f}
+                      </div>
+                    ))}
                   </div>
+                  <Link href="/get-involved" className={`inline-flex items-center gap-2 w-fit px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-[15px] hover:-translate-y-0.5 transition-all ${program.btnClass}`}>{program.btnText}</Link>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
+              </div>
+            </AnimateIn>
+          ))}
         </div>
-      </section>
-
-      <section className="py-16 sm:py-24 bg-brand-teal-deep text-white">
-        <div className="max-w-[1280px] mx-auto px-6 sm:px-8">
-          <AnimateIn className="text-center">
-            <p className="text-xs font-bold uppercase tracking-[2.5px] text-brand-teal-light mb-3.5">Student Projects</p>
-            <h2 className="font-serif font-bold text-[clamp(34px,4vw,48px)] leading-[1.1] tracking-tight">
-              Impact <em className="italic text-brand-teal-light">in action</em>
-            </h2>
-          </AnimateIn>
-
-          <StaggerChildren stagger={0.12} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 mt-12">
-            {projects.map((project) => (
-              <StaggerItem key={project.title}>
-                <div className="bg-white/[0.06] border border-white/[0.08] rounded-xl overflow-hidden hover:-translate-y-1 hover:bg-white/10 transition-all">
-                  <div className="h-[180px] sm:h-[200px] img-zoom">
-                    <Image src={project.img} alt={project.title} width={600} height={350} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="p-5 sm:p-6">
-                    <h4 className="font-serif font-bold text-lg sm:text-xl mb-2">{project.title}</h4>
-                    <p className="text-sm text-white/60 leading-relaxed">{project.desc}</p>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      </section>
-
-      <CTABanner />
-    </>
+      </div>
+    </section>
   );
 }
